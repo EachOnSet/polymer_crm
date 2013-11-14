@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<polymer-element name="crm-add">
+ 
+  <template>
+    <table summary="Add a new contact">
+      <caption>Add a new contact</caption>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="3" style="text-align: right;"><button on-click="{{addContact}}" id="addButton">Add</button></td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr >
+          <td>
+            <input type="text" id="name" placeholder="First Last" required></input>
+          </td>
+          <td>
+            <input type="email" id="email" placeholder="you@web.com" required></input>
+          </td>
+          <td>
+            <input type="tel" id="phone" placeholder="800-555-5555" required></input>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </template>
+
+  <script type="application/dart" src="crm_add.dart">
+  </script>
+
+</polymer-element>

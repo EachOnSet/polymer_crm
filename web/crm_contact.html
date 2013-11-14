@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<polymer-element name="crm-contact">
+ 
+  <template>
+    <table summary="List of contacts">
+      <caption>List of contacts</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="icon">&nbsp;</th>
+          <th scope="col" class="icon">&nbsp;</th>
+          <th scope="col" class="name">Name</th>
+          <th scope="col" class="email">Email</th>
+          <th scope="col">Phone</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th scope="row" colspan="3">Total contacts</th>
+          <td colspan="2" id="total-contacts">{{TotalContacts}}</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr >
+          <td colspan="5">
+            <div id="list-contacts">
+              <template if="{{TotalContacts <= 0}}">
+                <span>Please add a contact</span>
+              </template>
+              <template if="{{TotalContacts > 0}}">
+                <template repeat="{{Contact in listContacts}}">
+                  <div class="contact" id="hidcontact[{{Contact.email}}]">
+                    <button on-click="{{saveContact}}" style="border: 0; background: transparent; width: 23px;" id="save-ct" code="{{Contact.email}}">
+                      <img src="img/accept.png" alt="Save" />
+                    </button>
+                    <button on-click="{{removeContact}}" style="border: 0; background: transparent; width: 23px;" id="save-ct" code="{{Contact.email}}">
+                      <img src="img/cancel.png" alt="Save" />
+                    </button>
+                    <span>
+                      <input class="name" type="text" id="name" placeholder="First Last" required value="{{Contact.name}}"></input>
+                    </span>
+                    <span>
+                      <input class="email" type="email" id="email" placeholder="you@web.com" required value="{{Contact.email}}"></input>
+                    </span>
+                    <span>
+                      <input type="tel" id="phone" placeholder="800-555-5555" required value="{{Contact.phone}}"></input>
+                    </span>
+                  </div>
+                </template>
+              </template>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </template>
+
+  <script type="application/dart" src="crm_contact.dart">
+  </script>
+
+</polymer-element>
