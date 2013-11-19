@@ -1,0 +1,6 @@
+ex08 avec polymer
+
+10/10 excellent
+
+ajouter build au .gitignore
+
